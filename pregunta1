@@ -1,0 +1,14 @@
+SELECT
+    last_name || ' ' || first_name nombres,
+    date(hire_date) fecha contratación,
+    salary salario,
+    d.department_name departamento,
+    j.job_title rol
+FROM employees e
+LEFT JOIN departments d ON
+    d.department_id = e.department_id
+LEFT JOIN jobs j ON
+    j.job_id=e.job_id
+WHERE true
+    AND salary >= 4500
+    AND salary < 15000;
